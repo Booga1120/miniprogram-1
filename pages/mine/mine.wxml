@@ -1,0 +1,14 @@
+<!--pages/mine/mine.wxml-->
+<text>pages/mine/mine.wxml</text>
+<view class="Cards">
+<view class="termSet">
+  <block wx:for="{{array}}">
+      <view class="flashCardTerm">{{term[term.length-item-1]}}</view>
+</block>
+</view>
+<view class="defSet">
+  <block wx:for="{{array}}">
+      <view class="flashCardDefinition">{{def[def.length-item-1]}}</view>
+</block>
+</view>
+</view>

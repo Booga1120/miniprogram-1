@@ -1,0 +1,23 @@
+/* pages/mine/mine.wxss */
+.Cards{
+  display: flex;
+  flex-direction: row;
+}
+.termSet{
+  margin: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.defSet{
+  margin: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.flashCardTerm {
+  margin: 10px;
+  text-align: center;
+}
+.flashCardDefinition {
+  margin: 10px;
+  text-align: center;
+}

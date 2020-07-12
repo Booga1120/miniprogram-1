@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/mine/mine"
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#db0f20",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Home"
+    },
+    {
+      "pagePath":  "pages/detail/detail",
+      "text": "List"
+  },
+  {
+    "pagePath":  "pages/mine/mine",
+    "text": "Mine"
+}
+  ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
