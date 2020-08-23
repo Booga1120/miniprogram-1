@@ -1,14 +1,21 @@
 <!--pages/mine/mine.wxml-->
 <text>pages/mine/mine.wxml</text>
+<text>{{itemNumForSets}}</text>
 <view class="Cards">
 <view class="termSet">
   <block wx:for="{{array}}">
-      <view class="flashCardTerm">{{term[term.length-item-1]}}</view>
+      <button class="flashCardTerm" plain>{{term[term.length-item-1]}}</button>
 </block>
+</view>
+<view class="DeckSet">
+  <block wx:for="{{itemNumForSets}}">
+    
+    <button class="DeckName" plain>{{sets[item]}}</button>
+  </block>
 </view>
 <view class="defSet">
   <block wx:for="{{array}}">
-      <view class="flashCardDefinition">{{def[def.length-item-1]}}</view>
+      <button class="flashCardDefinition" plain>{{def[def.length-item-1]}}</button>
 </block>
 </view>
 </view>

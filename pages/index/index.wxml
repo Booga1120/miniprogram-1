@@ -8,7 +8,7 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <text class="user-motto">You Have {{motto}} Datasets</text>
   </view>
   <view class="btn-area">
   

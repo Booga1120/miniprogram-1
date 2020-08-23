@@ -35,6 +35,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    array: [0, 1, 2, 3, 4],
+    term: ["a", "b", "c", "d", "..."],
+    def: ["a1", "b1", "c1", "d1", "......"],
+    decks: ["deck1","deck2","deck3","+"]
   }
 })

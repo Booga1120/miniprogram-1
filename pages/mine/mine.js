@@ -1,20 +1,26 @@
 // pages/mine/mine.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    array: [0, 1, 2, 3, 4],
-    term: ["a", "b", "c", "d", "..."],
-    def: ["a1", "b1", "c1", "d", "......"],
+    array: app.globalData.array,
+    term: app.globalData.term,
+    def: app.globalData.def,
+    itemNumForSets: [0,1,2,3], //this is for item listing in wxml
+    sets: app.globalData.decks
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    
+    console.log(app.globalData.decks.length)
+    this.RetrieveCards()
+
   },
 
   /**
@@ -23,12 +29,16 @@ Page({
   onReady: function () {
 
   },
+
+
   //Called when loading set page
-  ShowSet: function () {
-    wx.setStorage({
-      key: userInfo.nickName,
-      data: SetWithName
-      })
+  RetrieveCards: function () {
+    for (var i=0; i<app.globalData.decks.length; i++){
+      DeckName = app.userInfo.nickName+ this.sets[i]
+      itemNumForSets.push(i)
+    }
+    
+    
   },
   /**
    * Lifecycle function--Called when page show
@@ -41,6 +51,10 @@ Page({
    */
   onHide: function () {
 
+   wx.setStorage({
+     key:userInfo.nickName,
+     data:sets
+   })
   },
 
   /**
@@ -54,9 +68,7 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
-    array: [0, 1, 2, 3, 4];
-    term: ["a", "b", "c", "d", "..."];
-    def: ["a1", "b1", "c1", "d", "......"];
+    
   },
   
 

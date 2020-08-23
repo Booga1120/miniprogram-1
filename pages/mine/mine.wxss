@@ -13,6 +13,11 @@
   display: flex;
   flex-direction: column;
 }
+.DeckName{
+  margin: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
 .flashCardTerm {
   margin: 10px;
   text-align: center;

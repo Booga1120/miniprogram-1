@@ -4,19 +4,14 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'LOL',
+    ifLogin: false,
+    motto: app.globalData.array.length,
     userInfo: {},
     userID: '',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.cloud.init()
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   bindButtonTap: function() {
     userID: app.globalData.userID;
     console.log(wx.cloud.cloudID)
