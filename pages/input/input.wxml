@@ -1,0 +1,9 @@
+<!--pages/input/input.wxml-->
+<view class="my_bg">
+    <view class="input_content">
+        <textarea  class="input"  placeholder="input field..." bindinput="voteTitle"></textarea>
+    </view>
+    <view class="ok" bindtap="ok">
+       <view class="word-ok">SUBMIT</view>
+    </view>
+</view>

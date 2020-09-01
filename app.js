@@ -23,6 +23,7 @@ App({
               this.globalData.userInfo = res.userInfo
               this.globalData.userID = res.cloudID
 
+
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -36,9 +37,12 @@ App({
   },
   globalData: {
     userInfo: null,
-    array: [0, 1, 2, 3, 4],
-    term: ["a", "b", "c", "d", "..."],
-    def: ["a1", "b1", "c1", "d1", "......"],
-    decks: ["deck1","deck2","deck3","+"]
+    array: [],
+    term: [],
+    def: [],
+    yourDecks: [],
+    Userinput: "",
+    selectedDeckName: "",
+    isChangeTerm: false
   }
 })

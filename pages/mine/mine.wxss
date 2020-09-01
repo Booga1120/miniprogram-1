@@ -1,28 +1,16 @@
 /* pages/mine/mine.wxss */
-.Cards{
-  display: flex;
-  flex-direction: row;
-}
-.termSet{
-  margin: 10rpx;
-  display: flex;
-  flex-direction: column;
-}
-.defSet{
-  margin: 10rpx;
-  display: flex;
-  flex-direction: column;
-}
+
+
 .DeckName{
-  margin: 10rpx;
+  width: 600rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: #999999;
+  border-radius: 98rpx;
   display: flex;
   flex-direction: column;
-}
-.flashCardTerm {
-  margin: 10px;
-  text-align: center;
-}
-.flashCardDefinition {
-  margin: 10px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 50rpx;
 }

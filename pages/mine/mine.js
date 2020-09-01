@@ -7,43 +7,80 @@ Page({
    * Page initial data
    */
   data: {
-    array: app.globalData.array,
-    term: app.globalData.term,
-    def: app.globalData.def,
-    itemNumForSets: [0,1,2,3], //this is for item listing in wxml
-    sets: app.globalData.decks
+    itemNumForSets: app.globalData.yourDecks, //this is for item listing in wxml
+    yourDecks: []
   },
-
+  itemNumForSets: [], //this is for item listing in wxml
+  yourDecks: [],
+  userNickName: app.globalData.nickName,
+  
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(app.globalData.decks.length)
     this.RetrieveCards()
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+    this.getDecks()
+    this.saveDecks()
+    console.log("Onload() is running!")
   },
 
 
   //Called when loading set page
-  RetrieveCards: function () {
-    for (var i=0; i<app.globalData.decks.length; i++){
-      DeckName = app.userInfo.nickName+ this.sets[i]
-      itemNumForSets.push(i)
+  getDecks: function () {
+    try{
+      for (var i=0; i<this.yourDecks.length; i++){
+        this.itemNumForSets.push(i)
+      }
+      this.setData({
+        itemNumForSets: this.itemNumForSets,
+        yourDecks: this.yourDecks
+      })
+      getApp().globalData.itemNumForSets = this.itemNumForSets
+    }catch(e){
+      console.warn("GetDecks() has "+ e)
     }
     
     
+  },
+
+  RetrieveCards: function () {
+    console.log(app.globalData.nickName)
+    console.log(this.yourDecks)
+    console.log("yourDecks currently in RetrieveCards() is: "+this.yourDecks)
+    this.yourDecks = wx.getStorageSync(app.globalData.nickName)
+    if(this.yourDecks == undefined){
+      this.yourDecks = []
+    }
+    console.log(this.yourDecks)
+  },
+
+  saveDecks: function () {
+    wx.setStorageSync(app.globalData.nickName, this.yourDecks)
+    console.log(this.yourDecks)
   },
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function () {
+    console.log("Onshow() is running!")
+    try{
+      if(app.globalData.userInput.length>0){
+        this.yourDecks.push(app.globalData.userInput)
+        this.itemNumForSets.push(this.itemNumForSets.length)
+        this.setData({
+          yourDecks: this.yourDecks,
+          itemNumForSets: this.itemNumForSets
+        })
+        getApp().globalData.userInput = ""
+        this.saveDecks()
+        console.log("yourDecks currently in onShow() is: "+this.yourDecks)
+        console.log(getStorageSync(app.globalData.nickName))
+      }
+    }catch(e){
+      console.warn("error on OnShow()"+e)
+    }
+    
+    
   },
 
   /**
@@ -51,10 +88,11 @@ Page({
    */
   onHide: function () {
 
-   wx.setStorage({
-     key:userInfo.nickName,
-     data:sets
+   wx.setStorageSync({
+     key:app.globalData.nickName,
+     data:this.yourDecks
    })
+   
   },
 
   /**
@@ -84,5 +122,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  addDeck: function() {
+    getApp().globalData.userInput = ""
+
+    wx.navigateTo({
+      url: '../input/input'
+    })
+   
+    //this.yourDecks.push(app.globalData.userInput)
+    //saveDecks()
+    
+  },
+
+  directToDeck: function(e) {
+    getApp().globalData.selectedDeckName = e.currentTarget.dataset.text
+    console.log(e.currentTarget.dataset.text)
+    wx.navigateTo({
+      url: '../VocabList/VocabList'
+    })
   }
 })

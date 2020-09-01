@@ -1,0 +1,19 @@
+<!--pages/VocabList/VocabList.wxml-->
+<view class="Cards">
+  <view class="termSet">
+  <text>Terms:</text>
+      <block wx:for="{{array}}">
+          
+          <button class="flashCardTerm" plain>{{term[term.length-item-1]}}</button>
+      </block>
+      
+    </view>
+    <view class="defSet">
+    <text>Definition:</text>
+      <block wx:for="{{array}}">
+        
+          <button bindtap = "editDef" class="flashCardDefinition" data-text='{{def[def.length-item-1]}}' plain>{{def[def.length-item-1]}}</button>
+      </block>
+    </view>
+  </view>
+  <button bindtap = "addTerm" class="addButton" plain>+</button>
